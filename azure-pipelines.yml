@@ -10,6 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- script: |
+    echo Starting the build...
+  displayName: 'Start script inline'
+
+- task: ShellScript@2
+  inputs:
+    scriptPath: 'src/main/scripts/myscript.sh'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
